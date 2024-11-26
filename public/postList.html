@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/public/css/posts.css" />
+    <title>아무 말 대잔치</title>
+</head>
+<body>
+    <header>
+        아무 말 대잔치
+        <button class="profile-button" onclick="toggleDropdown()">
+            <img id="profile_image" class="mini-profile" src=""/>
+        </button>
+        <div class="dropdown" id="dropdown-menu">
+            <ul>
+                <li><a id="edit_profile">회원정보수정</a></li>
+                <li><a id="edit_password" >비밀번호수정</a></li>
+                <li><a id = 'logout'>로그아웃</a></li>
+            </ul>
+        </div>    
+    </header>
+    <hr />
+    <section class="warp">
+        <article>
+            <div class="introduce">
+                안녕하세요, <br />
+                아무 말 대잔치 <strong>게시판 </strong>입니다.<br />
+            </div>
+            <button
+                id="add_post_button"
+                class="write-button"
+            >
+                게시글 작성
+            </button>
+        </article>
+    </section>
+    <script src="/public/js/common.js"></script>
+    <script src="/public/js/postList.js"></script>
+</body>
+</html>

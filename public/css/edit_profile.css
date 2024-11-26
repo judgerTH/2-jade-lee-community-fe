@@ -1,0 +1,284 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 30px;
+    font-size: 32px;
+    font-weight: 400;
+}
+body {
+    background-color: #F4F5F7;
+    padding-bottom: 10%;
+}
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    width: 50%;
+    position: relative;
+}
+a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+}
+.title {
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.warp {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 16px 0;
+}
+
+article {
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+input {
+    height: 40px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    width: 100%;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.submit-button {
+    text-align: center;
+    height: 33px;
+    width: 355px;
+    background-color: #ACA0EB;
+    border-radius: 4px;
+    border: 4px solid #ACA0EB;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+.helper-text {
+    font-size: 10px;
+    color: red;
+}
+.inputBox label {
+    font-size: 16px;
+    font-weight: 700;
+}
+.inputBox textarea {
+    height: 250px;
+}
+.back-button {
+    background: none;
+    border: none;
+    padding: 0;
+    position: absolute;
+    left: 25px; /* 좌측 고정 */
+    cursor: pointer;
+}
+
+.back-image {
+    width: 50px;
+}
+.introduce {
+    text-align: center;
+    font-size: 24px;
+    margin: 30px;
+}
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    margin-bottom: 20px;
+}
+
+.profile-container {
+    position: relative;
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 드롭다운 */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    background-color: #D9D9D9; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1; 
+}
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.dropdown li {
+    padding: 12px 16px;
+}
+
+.dropdown li:hover {
+    background-color: #e9e9e9; 
+}
+.mini-profile {
+    width: 50px;
+}
+.profile-button {
+    background: none;
+    padding: 0;
+    position: absolute;
+    right: 25px;
+    cursor: pointer;
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; 
+    border: solid #e9e9e9;
+    overflow: hidden;
+    cursor: pointer;
+}
+.helper-text {
+    font-size: 12px;
+    color: red;
+}
+.content {
+    height: 250px;
+}
+
+.modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed; /* 고정 위치 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 전체 화면 너비 */
+    height: 100%; /* 전체 화면 높이 */
+    overflow: hidden; /* 스크롤 방지 */
+    background-color: rgba(0, 0, 0, 0.5); /* 불투명도 50% */
+    pointer-events: auto; /* 클릭 이벤트 차단 */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: #fefefe;
+    margin: 15% auto; /* 상단 여백 */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* 너비 */
+    border-radius: 12px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right; /* 오른쪽 정렬 */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cancel-button-modal{
+    margin-top: 15px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    border-radius: 12px;
+    border: 1px solid black;
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+}
+
+.submit-button-modal{
+    margin-top: 15px;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    background-color: #ACA0EB;
+    border-radius: 12px;
+    border: 1px solid #ACA0EB;
+    font-size: 12px;
+    padding: 5px;
+    color: white;
+}
+
+.cancel-button-modal:hover,
+.cancel-button-modal:focus,
+.submit-button-modal:hover,
+.submit-button-modal:focus{
+    color: gray; /* 마우스 오버 시 색상 변화 */
+    text-decoration: none; /* 밑줄 제거 */
+    cursor: pointer; /* 커서 변경 */
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 10%;
+    background-color: #ACA0EB;
+    color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    opacity: 0;
+    transform: translateX(-50%); /* 가로 기준 중앙 정렬 */
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 20%;
+}
+.introduce {
+    text-align: center;
+    font-size: 24px;
+    margin: 30px;
+}
