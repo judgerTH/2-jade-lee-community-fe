@@ -184,26 +184,41 @@ async function editPost() {
         console.error('로드 오류:', error);
         alert('오류가 발생했습니다.');
     }
-};
-async function likePost() {
+};async function likePost() {
     try {
         const response = await fetch(`http://localhost:8000/posts/${postId}/like`, {
-            method: 'post',
-            credentials: 'include', 
+            method: 'POST',
+            credentials: 'include', // 쿠키 포함
         });
-        if (response.status === 400) {
+
+        if (response.ok) {
+            const responseData = await response.json();
+
+            // 좋아요 버튼 및 카운트 업데이트
+            const likeButton = document.getElementById('like_cnt');
+            const likeCount = parseInt(likeButton.textContent.split('<br>')[0]);
+
+            if (responseData.message === "liked") {
+                alert('좋아요를 추가했습니다.');
+                likeButton.innerHTML = `${likeCount + 1}<br>좋아요수`;
+            } else if (responseData.message === "unliked") {
+                alert('좋아요를 취소했습니다.');
+                likeButton.innerHTML = `${likeCount - 1}<br>좋아요수`;
+            }location.reload(); // 필요한 경우만 실행
+
+        } else if (response.status === 400) {
             alert('로그인이 필요합니다.');
-            window.location.href = '/'; 
-            return
-        } 
-        if (response.status === 204){
-            location.reload();
+            window.location.href = '/';
+        } else {
+            console.error('좋아요 요청 실패:', response.status);
+            alert('좋아요 처리 중 오류가 발생했습니다.');
         }
     } catch (error) {
-        console.error('로드 오류:', error);
+        console.error('좋아요 요청 오류:', error);
         alert('오류가 발생했습니다.');
     }
-};
+}
+
 async function deletePost(){
     try {
         const response = await fetch(`http://localhost:8000/posts/${postId}`, {
