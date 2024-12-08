@@ -16,7 +16,7 @@ const postsPerPage = 5;
 
 async function loadPosts() {
     try {
-        const response = await fetch('http://localhost:8000/posts', {
+        const response = await fetch('http://3.34.40.191:8000/posts', {
             method: 'GET',
             credentials: 'include',
         });
@@ -34,12 +34,12 @@ async function loadPosts() {
             if (post.title.length > 26) {
                 post.title = post.title.slice(0, 26) + '...'; 
             }
-            const imageUrl = `http://localhost:8000${post.author.image_url}`;
+            const imageUrl = `http://3.34.40.191:8000${post.author.image_url}`;
             const postElement = document.createElement("div");
             postElement.classList.add("post");
             postElement.onclick = async () => {
                 try {
-                    const response = await fetch(`http://localhost:8000/posts/${post.post_id}/`, {
+                    const response = await fetch(`http://3.34.40.191:8000/posts/${post.post_id}/`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

@@ -41,7 +41,7 @@ const postId = pathSegments[pathSegments.length - 2];
 
 async function loadPosts() {
     try {
-        const response = await fetch(`http://localhost:8000/posts/${postId}`, {
+        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}`, {
             method: 'GET',
             credentials: 'include', 
         });
@@ -79,7 +79,7 @@ async function updatePost() {
     }
     console.log(title, content, imageFlag);
     try {
-        const response = await fetch(`http://localhost:8000/posts/${postId}`, {
+        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}`, {
             method: 'PATCH',
             body: formData,
             credentials: 'include' 

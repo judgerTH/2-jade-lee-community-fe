@@ -62,7 +62,7 @@ function closeQuitModal() {
 }
 async function load() {
     try {
-        const response = await fetch(`http://localhost:8000/user`, {
+        const response = await fetch(`http://3.34.40.191:8000/user`, {
             method: 'GET',
             credentials: 'include', 
         });
@@ -73,7 +73,7 @@ async function load() {
             return
         } 
         document.getElementById('user_email').innerHTML = data.email;
-        document.getElementById('profileImage').src = data.profileImage ? `http://localhost:8000${data.profileImage}` : '/images/profile_img.png';
+        document.getElementById('profileImage').src = data.profileImage ? `http://3.34.40.191:8000${data.profileImage}` : '/images/profile_img.png';
         document.getElementById('nickname').value = data.nickname;
     } catch (error) {
         console.error('로드 오류:', error);
@@ -93,7 +93,7 @@ async function updateUser() {
         formData.append('profileImage', profileImage); 
     }
     try {
-        const response = await fetch('http://localhost:8000/user', {
+        const response = await fetch('http://3.34.40.191:8000/user', {
             method: 'PATCH',
             body: formData,
             credentials: 'include'
@@ -120,7 +120,7 @@ async function updateUser() {
 
 async function deleteUser() {
     try {
-        const response = await fetch(`http://localhost:8000/user`, {
+        const response = await fetch(`http://3.34.40.191:8000/user`, {
             method: 'DELETE',
             credentials: 'include', // 쿠키를 포함하여 요청을 보냄
         });
