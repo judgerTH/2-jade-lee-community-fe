@@ -61,21 +61,23 @@ async function login() {
                 credentials: 'include' 
             });
             const responseData = await response.json();
+
             if (response.status === 200) {
                 console.log('로그인 성공');
                 window.location.href = '/posts';
+                return; // 로그인 성공 시 즉시 종료
+            }
+
+            // 로그인 실패 시 에러 처리
+            if (response.status === 400 && responseData.message === "invalid_request") {
+                console.error('유효하지 않은 요청:', responseData.message);
+                alert('유효하지 않은 요청입니다.');
+            } else if (response.status === 500 && responseData.message === "internal_server_error") {
+                console.error('서버 오류:', responseData.message);
+                alert('서버에 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
             } else {
-                if (response.status === 400 && responseData.message === "invalid_request") {
-                    console.error('유효하지 않은 요청:', responseData.message);
-                    alert('유효하지 않은 요청입니다.');
-                }
-                else if (response.status === 500 && responseData.message === "internal_server_error") {
-                    console.error('서버 오류:', responseData.message);
-                    alert('서버에 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
-                } else {
-                    console.error('알 수 없는 에러:', responseData.message);
-                    alert(responseData.message || '로그인에 실패했습니다.');
-                }
+                console.error('알 수 없는 에러:', responseData.message);
+                alert(responseData.message || '로그인에 실패했습니다.');
             }
         } catch (error) {
             console.error('로그인 요청 오류:', error);
