@@ -34,7 +34,7 @@ async function loadPosts() {
             if (post.title.length > 26) {
                 post.title = post.title.slice(0, 26) + '...'; 
             }
-            const imageUrl = `http://3.34.40.191:8000/api${post.author.image_url}`;
+            const imageUrl = `http://3.34.40.191:8000${post.author.image_url}`;
             const postElement = document.createElement("div");
             postElement.classList.add("post");
             postElement.onclick = async () => {

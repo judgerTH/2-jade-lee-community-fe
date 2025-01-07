@@ -61,7 +61,7 @@ async function load() {
             return
         } 
 
-        document.getElementById('profile_image').src = data.profileImage ? `http://3.34.40.191:8000/api${data.profileImage}` : '/images/profile_img.png';
+        document.getElementById('profile_image').src = data.profileImage ? `http://3.34.40.191:8000${data.profileImage}` : '/images/profile_img.png';
     } catch (error) {
         console.error('로드 오류:', error);
         alert('오류가 발생했습니다.');
