@@ -110,8 +110,8 @@ async function loadPosts() {
             window.location.href = '/posts'; 
             return
         }
-        document.getElementById('postImage').src = data.data.postImage ? `http://3.34.40.191:8000/api${data.data.postImage}` : ''
-        document.getElementById('author_image').src = data.data.author.profileImage ? `http://3.34.40.191:8000/api${data.data.author.profileImage}` : '/images/profile_img.png'
+        document.getElementById('postImage').src = data.data.postImage ? `http://3.34.40.191:8000${data.data.postImage}` : ''
+        document.getElementById('author_image').src = data.data.author.profileImage ? `http://3.34.40.191:8000${data.data.author.profileImage}` : '/images/profile_img.png'
         document.getElementById('title').textContent = `${data.data.title}`
         document.getElementById('content').textContent = `${data.data.content}`
         document.getElementById('like_cnt').innerHTML = `${data.data.like_cnt}<br>좋아요수`;
@@ -138,7 +138,7 @@ async function loadPosts() {
                     <div class="comment-header">
                         <div class="writer-profile">
                             <button class="profile">
-                                <img width="35px" src="${comment.author.profileImage ? `http://3.34.40.191:8000/api${comment.author.profileImage}` : '/images/profile_img.png'}" />
+                                <img width="35px" src="${comment.author.profileImage ? `http://3.34.40.191:8000${comment.author.profileImage}` : '/images/profile_img.png'}" />
                             </button>
                             <strong>${comment.author.nickname}</strong>
                         </div>
