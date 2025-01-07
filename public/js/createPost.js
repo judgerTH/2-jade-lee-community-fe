@@ -35,7 +35,7 @@ async function addPost() {
     }
 
     try {
-        const response = await fetch('http://3.34.40.191:8000/posts', {
+        const response = await fetch('http://3.34.40.191:8000/api/posts', {
             method: 'POST',
             body: formData,
             credentials: 'include' 
