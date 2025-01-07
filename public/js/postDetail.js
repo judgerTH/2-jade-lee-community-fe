@@ -33,7 +33,7 @@ function editComment(post_id, comment, comment_id) {
 async function editCommentSend(post_id, comment_id) {
     try {
         const content = document.getElementById('comment-input').value;
-        const response = await fetch(`http://3.34.40.191:8000/posts/${post_id}/comments/${comment_id}`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${post_id}/comments/${comment_id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ let userId;
 let postData;
 async function loadPosts() {
     try {
-        const response = await fetch(`http://3.34.40.191:8000/user`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/user`, {
             method: 'GET',
             credentials: 'include',
         });
@@ -110,8 +110,8 @@ async function loadPosts() {
             window.location.href = '/posts'; 
             return
         }
-        document.getElementById('postImage').src = data.data.postImage ? `http://3.34.40.191:8000${data.data.postImage}` : ''
-        document.getElementById('author_image').src = data.data.author.profileImage ? `http://3.34.40.191:8000${data.data.author.profileImage}` : '/images/profile_img.png'
+        document.getElementById('postImage').src = data.data.postImage ? `http://3.34.40.191:8000/api${data.data.postImage}` : ''
+        document.getElementById('author_image').src = data.data.author.profileImage ? `http://3.34.40.191:8000/api${data.data.author.profileImage}` : '/images/profile_img.png'
         document.getElementById('title').textContent = `${data.data.title}`
         document.getElementById('content').textContent = `${data.data.content}`
         document.getElementById('like_cnt').innerHTML = `${data.data.like_cnt}<br>좋아요수`;
@@ -138,7 +138,7 @@ async function loadPosts() {
                     <div class="comment-header">
                         <div class="writer-profile">
                             <button class="profile">
-                                <img width="35px" src="${comment.author.profileImage ? `http://3.34.40.191:8000${comment.author.profileImage}` : '/images/profile_img.png'}" />
+                                <img width="35px" src="${comment.author.profileImage ? `http://3.34.40.191:8000/api${comment.author.profileImage}` : '/images/profile_img.png'}" />
                             </button>
                             <strong>${comment.author.nickname}</strong>
                         </div>
@@ -164,7 +164,7 @@ async function loadPosts() {
 }
 async function editPost() {
     try {
-        const response = await fetch(`http://3.34.40.191:8000/user`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/user`, {
             method: 'GET',
             credentials: 'include',
         });
@@ -186,7 +186,7 @@ async function editPost() {
     }
 };async function likePost() {
     try {
-        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}/like`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${postId}/like`, {
             method: 'POST',
             credentials: 'include', // 쿠키 포함
         });
@@ -221,7 +221,7 @@ async function editPost() {
 
 async function deletePost(){
     try {
-        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${postId}`, {
             method: 'DELETE',
             credentials: 'include',
         });
@@ -262,7 +262,7 @@ async function addComment() {
         return;
     }
     try {
-        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}/comments`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${postId}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -295,7 +295,7 @@ async function addComment() {
 };
 async function deleteComment(commentId){
     try {
-        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}/comments/${commentId}`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${postId}/comments/${commentId}`, {
             method: 'DELETE',
             credentials: 'include', 
         });
