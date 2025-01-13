@@ -97,7 +97,7 @@ async function loadPosts() {
         alert('오류가 발생했습니다.');
     }
     try {
-        const response = await fetch(`http://3.34.40.191:8000/posts/${postId}`, {
+        const response = await fetch(`http://3.34.40.191:8000/api/posts/${postId}`, {
             method: 'GET',
             credentials: 'include',
         });
